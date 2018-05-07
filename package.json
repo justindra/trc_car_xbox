@@ -9,7 +9,7 @@
     "test-controller": "npm run build && node dist/src/controller-test.js",
     "start": "npm run build && node dist/src/index.js"
   },
-  "author": "",
+  "author": "Justin Rahardjo <justindra91@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "gamepad": "^1.5.2",

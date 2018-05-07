@@ -1,1 +1,0 @@
-while sleep 1; do echo "asdasd pos: 484.213123, rel: 1231.123123 \n"; done
