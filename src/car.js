@@ -3,13 +3,9 @@ const Struct = require('struct');
 
 /**
  * The Communications to the car
+ * @param {string} portPath The path to the serial port
  */
 export class Car {
-  // Private variables
-  // _port;
-  // _data;
-  // _dataProxy;
-
   constructor(portPath = '') {
     // Initialize the serial port
     this._port = new SerialPort(portPath, {
@@ -36,14 +32,26 @@ export class Car {
     });
   }
 
+  /**
+   * Set the steering angle
+   * @param {number} steerAngle 
+   */
   setSteering(steerAngle = 0) {
     this._dataProxy.steer = parseInt(steerAngle);
   }
 
+  /**
+   * Set the acceleration
+   * @param {number} acceleration 
+   */
   setAcceleration(acceleration = 0) {
     this._dataProxy.acceleration = acceleration;
   }
 
+  /**
+   * Set the brakes
+   * @param {number} brakes 
+   */
   setBrakes(brakes = 0) {
     this._dataProxy.brakes = brakes;
   }

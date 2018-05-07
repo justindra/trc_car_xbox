@@ -6,16 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,./echo_ino,./blink_serial_ino --copy-files",
+    "test-controller": "npm run build && node dist/src/controller-test.js",
     "start": "npm run build && node dist/src/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "gamepad": "^1.5.2",
-    "node-bluetooth": "^1.2.0",
-    "node-hid": "^0.7.2",
     "serialport": "^6.2.0",
-    "shelljs": "^0.8.1",
     "struct": "0.0.12"
   },
   "devDependencies": {
