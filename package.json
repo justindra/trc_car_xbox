@@ -2,9 +2,11 @@
   "name": "node",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,./echo_ino,./blink_serial_ino --copy-files",
+    "start": "npm run build && node dist/src/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,5 +17,10 @@
     "serialport": "^6.2.0",
     "shelljs": "^0.8.1",
     "struct": "0.0.12"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "rimraf": "^2.6.2"
   }
 }
