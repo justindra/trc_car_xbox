@@ -9,7 +9,7 @@ const ControllerAxisConfig = {
 
 class Loop {
   constructor() {
-    this.car = new Car('/dev/ttyUSB1');
+    this.car = new Car('/dev/ttyUSB0');
     this.controller = new Controller(
       this.controllerUpdate.bind(this),
       ControllerAxisConfig
