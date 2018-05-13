@@ -24,8 +24,8 @@ const DEFAULT_BUTTON_CONFIG = {
   rightJoystickButton: 9
 }
 
-function defaultCallback(evtName, value) {
-  console.log(`${evtName}: ${value}`);
+function defaultCallback(evtName, value, axis) {
+  console.log(`${evtName}[${axis}]: ${value}`);
 }
 
 export class Controller {
@@ -68,7 +68,7 @@ export class Controller {
     } else {
       realValue = convertToRange(value);
     }
-    this._cb(evtName, parseInt(realValue));
+    this._cb(evtName, parseInt(realValue), axis);
   }
 
   _downHandler(sessionId, buttonId) {
@@ -77,7 +77,7 @@ export class Controller {
     let evtName = getObjectKeyFromValue(this._buttonConfig, buttonId);
     // If the button is not defined, then just ignore it
     if (!evtName) return;
-    this._cb(evtName, 1);
+    this._cb(evtName, 1, buttonId);
   }
 }
 
@@ -91,6 +91,10 @@ export class Controller {
  * @param {number} inRangeMax
  */
 export function convertToRange(value, outRangeMin = 0, outRangeMax = 255, inRangeMin = -1, inRangeMax = 1) {
+  // const outrange = (outRangeMax - outRangeMin);
+  // const inrange = (inRangeMax - inRangeMin);
+  // const valinrange = value - inRangeMin
+  // console.log(outrange/inrange, valinrange);
   return (((outRangeMax - outRangeMin)/ (inRangeMax - inRangeMin)) * (value - inRangeMin)) + outRangeMin;
   // return (value + 1) * 255 / 2;
 }
