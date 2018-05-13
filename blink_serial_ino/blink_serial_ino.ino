@@ -39,12 +39,12 @@ void loop() {
     jetson_steer = Serial.read();
     jetson_throttle = Serial.read();
     jetson_brake = Serial.read();
-//    char sendBuffer[4];
-//    sprintf(sendBuffer, "%d%d%d%d", jetson_stop, jetson_steer, jetson_throttle, jetson_brake);
-    analogWrite(blue, jetson_steer);
-    analogWrite(green, jetson_throttle);
-    analogWrite(red, jetson_brake);
-//    Serial.println(sendBuffer);
+   char sendBuffer[4];
+   sprintf(sendBuffer, "%d%d%d%d", jetson_stop, jetson_steer, jetson_throttle, jetson_brake);
+    // analogWrite(blue, jetson_steer);
+    // analogWrite(green, jetson_throttle);
+    // analogWrite(red, jetson_brake);
+   Serial.println(sendBuffer);
     
     
     

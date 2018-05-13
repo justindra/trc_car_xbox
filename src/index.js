@@ -70,4 +70,17 @@ class Loop {
 }
 
 const mainLoop = new Loop();
-mainLoop.startSerial();
+
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question('Are you ready? ', (answer) => {
+  // TODO: Log the answer in a database
+  console.log('Lets get started!!!');
+  rl.close();
+  mainLoop.startSerial();
+});
